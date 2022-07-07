@@ -14,5 +14,7 @@
 
 /* Simple defaults */
 body {
-  @apply font-sans antialiased text-black bg-white;
+  @apply font-sans antialiased text-black bg-white tracking-tight dark:text-off-white dark:bg-black transition-colors ease-in-out duration-500;
+  
+  font-size: clamp(16px,0.92rem + 0.4vw, 25px)
 }

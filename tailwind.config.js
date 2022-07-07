@@ -1,11 +1,13 @@
 module.exports = {
+  darkMode: 'class',
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     fontFamily: {
-      'sans': ['Arial', 'sans-serif'],
+      'sans': ['FT Blank Trial', 'Arial', 'sans-serif'],
+      'serif': ['Denton Test', 'ui-serif', 'Georgia'],
       'mono': ['Lucida Console', 'Courier', 'monospace'],
     },
     screens: {
@@ -18,7 +20,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        'black': '#000',
+        'black': '#232323',
+        'off-white': '#DBCFC2',
         'white': '#FFF',
         'example-color': {
           light: '#ffb288',

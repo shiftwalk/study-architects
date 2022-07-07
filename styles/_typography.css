@@ -1,7 +1,13 @@
 /* Content Stylings */
 .content {
   & > p {
-    @apply mb-5 last-of-type:mb-0;
+    @apply mb-5 last-of-type:mb-0 leading-[1.08];
+
+    font-size: clamp(16px,0.92rem + 0.4vw, 25px)
+  }
+
+  & > p:first-of-type {
+    @apply indent-[10%]
   }
 
   & > p > a {
@@ -19,5 +25,11 @@
 
 /* Heading Defaults */
 h1, .h1, h2, .h2, h3, .h3 {
-  @apply p-0 mb-6 font-bold;
+  @apply p-0 mb-6;
+}
+
+.display-heading {
+  @apply font-serif leading-[0.9];
+
+  font-size: clamp(45px,0.92rem + 5vw, 130px)
 }

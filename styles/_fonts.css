@@ -1,8 +1,18 @@
-/* @font-face {
-  font-family: 'Example Sans';
-  src: url('../public/fonts/ExampleSans-Regular.woff2') format('woff2'),
-      url('../public/fonts/ExampleSans-Regular.woff') format('woff');
-  font-weight: 400;
+@font-face {
+  font-family: 'Denton Test';
+  src: url('../public/fonts/Denton-Medium.woff2') format('woff2'),
+      url('../public/fonts/Denton-Medium.woff') format('woff');
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
-} */
+}
+
+@font-face {
+  font-family: 'FT Blank Trial';
+  src: url('../public/fonts/FTBlankTrial-Semibold.woff2') format('woff2'),
+      url('../public/fonts/FTBlankTrial-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+

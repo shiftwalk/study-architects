@@ -6,33 +6,52 @@ import FancyLink from '@/components/fancyLink'
 import { fade } from '@/helpers/transitions'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
+import { useTheme } from 'next-themes'
+
 
 export default function Home() {
+  const {theme, setTheme} = useTheme()
+
+  const toggleTheme = () => {
+    if (theme == 'dark') {
+      setTheme('light')
+    } else {
+      setTheme('dark')
+    }
+  }
   return (
     <Layout>
       <NextSeo title="Home" />
-
-      <Header />
       
       <LazyMotion features={domAnimation}>
         <m.main
           initial="initial"
           animate="enter"
           exit="exit"
-          className="mb-12 md:mb-16 xl:mb-24"
+          className="p-[20px]"
         >
-          <Container>
-            <m.article variants={fade}>
-              <h1 className="font-bold text-2xl md:text-3xl xl:text-4xl mb-4">Next x Tailwind x Motion.</h1>
-              <div className="content max-w-3xl mb-4">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+          <m.article variants={fade} className="relative">
+            <span className="block md:absolute top-0 left-0 text-sm md:text-[1.2vw] xl:text-[1.05vw] 2xl:text-[17px] leading-none md:leading-none 2xl:leading-none mb-4 md:mb-0">
+              <span className="block">STUDY.</span>
+              <span className="block">81 Langton Street Unit 11,</span>
+              <span className="block">San Francisco,</span>
+              <span className="block">California 94103</span>
+            </span>
 
-                <p>Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              </div>
+            <button onClick={() => toggleTheme() } className="outline-none border-none block absolute top-0 right-0 w-[30px] md:w-[37px] h-[30px] md:h-[37px] bg-current rounded-full">
+            </button>
+
+
+            <h1 className="display-heading w-[85vw] mb-[5vw] md:indent-[25vw]">Study Architects is a design practice made of a team of skilled architects focused on research, process and ingenuity.</h1>
+
+            <div className="content w-11/12 md:w-1/3 max-w-[450px] md:mx-auto mb-[5vw]">
+              <p>We focus on creating buildings and spaces that tell stories, not only through the structural decisions that we make, but in the materials we choose to define them, and the tiniest details that we fill them with.</p>
               
-              <FancyLink destination="/about" a11yText="Navigate to the about page" label="About Page" />
-            </m.article>
-          </Container>
+              <p>Founded in 2019 by Daniel Yoder + Joe DiNapoli, STUDY has since grown to a dedicated team of 18, situated around the globe. Whether it’s in Norway, the UK, the States or beyond, we value the diverse perspectives that each provide.</p>
+
+              <p>STUDY is Daniel, Joe, Mark, Laura, Sash, Sarah, Stephen, Wes, Cassie, Marie, Chris, Paul, Jessica, Claire, Jason, Gunnar, Sebastian, Sunny &amp; Peter.</p>
+            </div>
+          </m.article>
         </m.main>
       </LazyMotion>
 
