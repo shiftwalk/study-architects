@@ -33,3 +33,9 @@ h1, .h1, h2, .h2, h3, .h3 {
 
   font-size: clamp(45px,0.92rem + 5vw, 130px)
 }
+
+.list-heading {
+  @apply font-serif leading-[0.9];
+
+  font-size: clamp(28px,0.62rem + 5vw, 80px)
+}

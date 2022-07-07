@@ -1,12 +1,12 @@
 export default {
-  defaultTitle: 'Boilerplate | Next x Tailwind x Motion',
-  description: 'A simple Next.js starter kit with Tailwind and Framer Motion.',
-  titleTemplate: '%s | Next x Tailwind x Motion',
+  defaultTitle: 'Buildings & Spaces That Tell Stories | Study Architects',
+  description: 'We focus on creating buildings and spaces that tell stories, not only through the structural decisions that we make, but in the materials we choose to define them, and the tiniest details that we fill them with.',
+  titleTemplate: '%s | Study Architects',
   openGraph: {
     type: 'website',
     locale: 'en_GB',
-    url: 'https://sg-next-tailwind-motion.vercel.app/',
-    site_name: 'Next x Tailwind x Motion',
+    url: 'https://study-architects.vercel.app/',
+    site_name: 'Study Architects',
   },
   twitter: {
     handle: '@samuelgoddard',

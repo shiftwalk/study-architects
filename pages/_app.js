@@ -10,6 +10,8 @@ export default function App({ Component, pageProps }) {
 
   return (
     <ThemeProvider attribute="class" defaultTheme="light">
+      <div className="grain fixed inset-0 z-[10000000] pointer-events-none"></div>
+      
       <DefaultSeo {...SEO} /> 
 
       <AnimatePresence exitBeforeEnter>
