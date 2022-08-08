@@ -14,7 +14,7 @@
 
 /* Simple defaults */
 body {
-  @apply font-sans antialiased text-off-black bg-texture-white tracking-tight dark:text-off-white dark:bg-off-black transition-colors ease-in-out duration-500 selection:bg-off-black selection:text-texture-white dark:selection:bg-off-white dark:selection:text-off-black;
+  @apply font-sans antialiased text-black bg-texture-white tracking-tight dark:text-off-white dark:bg-black selection:bg-black selection:text-texture-white dark:selection:bg-off-white dark:selection:text-black;
   
   font-size: clamp(16px,0.92rem + 0.4vw, 25px)
 }
