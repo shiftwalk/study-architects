@@ -6,8 +6,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'sans': ['FT Blank Trial', 'Arial', 'sans-serif'],
-      'serif': ['Denton Test', 'ui-serif', 'Georgia'],
+      'sans': ['Suisse', 'Arial', 'sans-serif'],
+      'serif': ['Denton', 'ui-serif', 'Georgia'],
       'mono': ['Lucida Console', 'Courier', 'monospace'],
     },
     screens: {

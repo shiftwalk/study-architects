@@ -36,7 +36,7 @@ export default function Home() {
           <div 
             className="bg-[#7FA9B3] dark:bg-[#CA8FA4] w-full h-screen p-[20px] flex items-center justify-center fixed top-0 z-[10]"
           >
-            <span className="absolute top-0 left-0 text-sm md:text-[1.2vw] xl:text-[1.05vw] 2xl:text-[17px] leading-none md:leading-none 2xl:leading-none mb-8 md:mb-0 md:p-[20px] dark:text-black">
+            <span className="absolute top-0 left-0 text-sm md:text-[15px] xl:text-[17px] leading-none md:leading-none 2xl:leading-none mb-8 md:mb-0 p-[20px] dark:text-black">
               <span className="block">STUDY.</span>
               <span className="block">81 Langton Street Unit 11,</span>
               <span className="block">San Francisco,</span>
@@ -133,7 +133,7 @@ export default function Home() {
 
             <div className="content content--no-indent flex">
               <p className="block">Projects</p>
-              <p className="ml-auto block">(8)</p>
+              <p className="ml-auto block">(7)</p>
             </div>
             <ul>
               {/* {Array.from(Array(10), (e, i) => {
