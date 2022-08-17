@@ -47,7 +47,7 @@ export default function Project({ isOpen, title, status, year, projectCode, loca
             sources={imageUrls}
             slide={lightboxController.slide}
           />
-          <m.div drag="x" dragConstraints={{ right: 0 }} dragMomentum={false} className="w-auto whitespace-nowrap flex cursor-grab">
+          <m.div drag={images.length > 6 ? 'x' : false} dragConstraints={{ right: 0 }} dragMomentum={false} className={`w-auto whitespace-nowrap flex ${images.length > 6 ? 'cursor-grab' : '' }`}>
             <div className="whitespace-nowrap space-x-5 items-end w-auto">
               {images.map((e, i) => {
                 return (
