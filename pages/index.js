@@ -4,7 +4,7 @@ import { fade } from '@/helpers/transitions'
 import { LazyMotion, domMax, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import { useTheme } from 'next-themes'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import Project from '@/components/project'
 import SanityPageService from '@/services/sanityPageService'
 import SanityBlockContent from '@sanity/block-content-to-react'
@@ -77,6 +77,9 @@ export default function Home(initialData) {
   const constraintsRef = useRef(null)
   const {theme, setTheme} = useTheme()
 
+  const [hoveringProjects, setHoveringProjects] = useState(false)
+  const [activeProject, setActiveProject] = useState(0)
+
   const toggleTheme = () => {
     if (theme == 'dark') {
       setTheme('light')
@@ -84,6 +87,17 @@ export default function Home(initialData) {
       setTheme('dark')
     }
   }
+
+  function updateProject(e) {
+    setHoveringProjects(true)
+    setActiveProject(e)
+  }
+  
+  function resetProject() {
+    setHoveringProjects(false)
+    setActiveProject(0)
+  }
+
   return (
     <Layout>
       <NextSeo title={home.title} />
@@ -251,8 +265,17 @@ export default function Home(initialData) {
               })} */}
 
               {projects.map((e, i) => {
+
+                let activeState = 'opacity-30'
+
+                if (i == activeProject && hoveringProjects) {
+                  activeState = 'opacity-100'
+                } 
+                if (!hoveringProjects) {
+                  activeState = 'opacity-100'
+                }
                 return (
-                  <li className={`block ${ i == 0 && 'border-t border-current' }`} key={i}>
+                  <li onMouseEnter={()=> updateProject(i)} onMouseLeave={()=> resetProject()} className={`block ${ i == 0 && 'border-t border-current' } transition-opacity ease-in-out duration-[450ms] ${activeState}`} key={i}>
                     <Project
                       title={e.title}
                       year={e.year}
@@ -268,7 +291,11 @@ export default function Home(initialData) {
             </ul>
             
             <div className="text-center my-[20vw] md:my-[13vw]">
-              <a href={`mailto:${contact.emailAddress}`} className="display-heading font-sans tracking-tight">{contact.emailAddress.replace('@', '[at]')}</a>
+              <a href={`mailto:${contact.emailAddress}`} className="display-heading font-sans group tracking-tight relative inline-block">
+                <span className="inline-block md:group-hover:translate-y-[-1.2vw] transition-translate ease-in-out duration-500">{contact.emailAddress.replace('@', '[at]')}</span>
+
+                <div className="w-0 md:group-hover:w-full transition-all delay-75 ease-in-out duration-500 h-1 md:mb-[-1.2vw] bg-current absolute bottom-0 left-0 right-0"></div>
+              </a>
             </div>
           </m.article>
         </m.main>

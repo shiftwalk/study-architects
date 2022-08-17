@@ -5,6 +5,19 @@ import FsLightbox from 'fslightbox-react';
 
 export default function Project({ isOpen, title, status, year, projectCode, location, images }) {
   const [open, setOpen] = useState(isOpen ? isOpen : false);
+
+  const [hoveringImages, setHoveringImages] = useState(false)
+  const [activeImage, setActiveImage] = useState(0)
+
+  function updateImages(e) {
+    setHoveringImages(true)
+    setActiveImage(e)
+  }
+  
+  function resetImages() {
+    setHoveringImages(false)
+    setActiveImage(0)
+  }
   
   const [lightboxController, setLightboxController] = useState({
     toggler: false,
@@ -50,8 +63,17 @@ export default function Project({ isOpen, title, status, year, projectCode, loca
           <m.div drag={images.length > 6 ? 'x' : false} dragConstraints={{ right: 0 }} dragMomentum={false} className={`w-auto whitespace-nowrap flex ${images.length > 6 ? 'cursor-grab' : '' }`}>
             <div className="whitespace-nowrap space-x-5 items-end w-auto">
               {images.map((e, i) => {
+                let activeState = 'opacity-30'
+
+                if (i == activeImage && hoveringImages) {
+                  activeState = 'opacity-100'
+                } 
+                if (!hoveringImages) {
+                  activeState = 'opacity-100'
+                }
+
                 return (
-                  <button onClick={() => openLightboxOnSlide(i + 1)} className="focus:outline-none focus:border-none w-[30vw] md:w-[16vw] max-w-[280px] inline-block" key={i}>
+                  <button onMouseEnter={()=> updateImages(i)} onMouseLeave={()=> resetImages()} onClick={() => openLightboxOnSlide(i + 1)} className={`focus:outline-none focus:border-none w-[30vw] md:w-[16vw] max-w-[280px] inline-block transition-opacity ease-in-out duration-[450ms] ${activeState}`} key={i}>
                     <Image
                       image={e}
                       focalPoint={e.asset.hotspot}
