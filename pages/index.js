@@ -14,6 +14,18 @@ const query = `{
   "home": *[_type == "home"][0]{
     title,
     contentHeading,
+    heroText,
+    heroImage {
+      asset-> {
+        ...,
+      },
+      caption,
+      alt,
+      hotspot {
+        x,
+        y
+      },
+    },
     imageGrid[] {
       asset-> {
         ...,
@@ -50,13 +62,18 @@ const query = `{
         y
       },
     },
+  },
+  "contact": *[_type == "contact"][0]{
+    emailAddress,
+    address,
+    instagram
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function Home(initialData) {
-  const { data: { home, projects } } = pageService.getPreviewHook(initialData)()
+  const { data: { home, projects, contact } } = pageService.getPreviewHook(initialData)()
   const constraintsRef = useRef(null)
   const {theme, setTheme} = useTheme()
 
@@ -98,7 +115,15 @@ export default function Home(initialData) {
               dragMomentum={false}
               whileDrag={{ scale: 0.95 }} 
               className="absolute top-0 left-0 ml-[12vw] mt-[10vh] z-[101] bg-blend-screen mix-blend-screen opacity-80 cursor-grab block">
-              <img src="/images/intro-01.jpg" alt="Something" className="rounded-full w-[45vw] md:w-[24vw] max-w-[450px] pointer-events-none" />
+
+              <Image
+                image={home.heroImage}
+                focalPoint={home.heroImage.asset.hotspot}
+                layout="responsive"
+                priority
+                className="rounded-full w-[45vw] md:w-[24vw] max-w-[450px] pointer-events-none"
+                sizes="(min-width: 768px) 50vw, 50vw"
+              />
             </m.div>
 
             {/* <m.div
@@ -111,7 +136,7 @@ export default function Home(initialData) {
 
             <div className="w-[100vw] relative">
               <span className="absolute inset-0 w-full text-white text-center flex items-center justify-center z-[100] text-[22px] md:text-[25px] xl:text-[28px] opacity-80">
-                Architectural Studio
+                {home.heroText}
               </span>
               <svg className="w-full mix-blend-multiply dark:mix-blend-normal z-[99]" viewBox="0 0 1599 396" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="#232323"><path d="m124.767 230.298 50.017 10.443c24.184 4.946 40.673 14.29 40.673 36.825 0 26.383-25.283 40.673-56.062 40.673-30.23 0-55.514-13.191-62.659-45.07H0c8.794 79.148 76.95 122.569 159.395 122.569 81.895 0 153.348-45.07 153.348-121.469 0-59.911-35.177-100.584-117.072-115.974l-50.567-10.443c-20.337-4.397-39.574-11.542-39.574-33.528 0-25.283 26.383-36.825 48.368-36.825 25.833 0 46.719 12.092 53.315 39.574h96.736C292.956 41.773 230.847 0 153.898 0 79.148 0 8.245 42.872 8.245 117.622c0 61.559 41.772 98.385 116.522 112.676ZM601.377 5.496H302.375v77.5h101.133v307.246h96.736V82.995h101.133V5.496ZM779.631 395.738c124.768 0 163.792-72.552 163.792-156.097V5.496h-96.736v234.145c0 39.574-10.993 78.598-67.056 78.598-56.612 0-67.055-39.024-67.055-78.598V5.496H615.29v234.145c0 83.545 37.375 156.097 164.341 156.097ZM1076.65 312.743h-21.44V82.995h21.44c81.89 0 112.12 45.62 112.12 114.874 0 69.254-30.23 114.874-112.12 114.874Zm-118.725 77.499h118.725c139.05 0 208.86-78.049 208.86-192.373 0-114.324-69.81-192.373-208.86-192.373H957.925v384.746Z"/><path d="M1364.36 390.242h96.73V250.085L1598.5 5.496h-102.23l-83.55 154.998-83.54-154.998h-102.23l137.41 243.489v141.257ZM1597.68 341.985c0 27.555-22.34 49.892-49.89 49.892s-49.89-22.337-49.89-49.892c0-27.555 22.34-49.893 49.89-49.893s49.89 22.338 49.89 49.893Z"/></g></svg>
             </div>
@@ -243,13 +268,13 @@ export default function Home(initialData) {
             </ul>
             
             <div className="text-center my-[20vw] md:my-[13vw]">
-              <a href="mailto:studio@study-arch.com" className="display-heading font-sans tracking-tight">studio[at]study-arch.com</a>
+              <a href={`mailto:${contact.emailAddress}`} className="display-heading font-sans tracking-tight">{contact.emailAddress.replace('@', '[at]')}</a>
             </div>
           </m.article>
         </m.main>
       </LazyMotion>
 
-      <Footer />
+      <Footer address={contact.address} instagram={contact.instagram} />
     </Layout>
   )
 }

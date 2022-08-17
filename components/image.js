@@ -41,7 +41,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
     </div>
 	) : (
     <figure className={`image ${noBg ? '' : 'bg-white'} bg-opacity-20 ${className} ${layout == 'fill' && 'cover-image' }`}>
-		  <Img {...imageProps} {...attributes} />
+		  <Img {...imageProps} {...attributes} className={className} />
       
       {(image.caption && !noCaption) && (
         <figcaption className={`block text-lg leading-none xl:leading-[1.15] px-2 md:px-0 xl:text-xl pt-3 pb-8 md:pb-2 md:pt-2 ${layout == 'fill' && 'mt-2 -mb-1 py-2 bg-white absolute bottom-0 left-0 w-full z-[10]'}`}>{image.caption}{image.captionSubHeading && (<span className="block text-gray">{image.captionSubHeading}</span>)}</figcaption>
