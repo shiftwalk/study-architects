@@ -109,6 +109,9 @@ export default function Home(initialData) {
           exit="exit"
           className="relative overflow-hidden"
         >
+          <button onClick={() => toggleTheme() } className="focus:outline-none border-none block fixed top-0 right-0 w-[30px] md:w-[37px] h-[30px] md:h-[37px] bg-current dark:bg-off-white rounded-full m-[20px] z-[1000]">
+          </button>
+
           <div 
             className="bg-[#7FA9B3] dark:bg-[#CA8FA4] w-full h-screen p-[20px] flex items-center justify-center fixed top-0 z-[10] overflow-hidden"
           >
@@ -120,9 +123,6 @@ export default function Home(initialData) {
               <span className="block">San Francisco,</span>
               <span className="block">California 94103</span>
             </span>
-
-            <button onClick={() => toggleTheme() } className="outline-none border-none block absolute top-0 right-0 w-[30px] md:w-[37px] h-[30px] md:h-[37px] bg-current dark:bg-black rounded-full m-[20px]">
-            </button>
 
             <m.div
               drag
@@ -275,7 +275,7 @@ export default function Home(initialData) {
                   activeState = 'opacity-100'
                 }
                 return (
-                  <li onMouseEnter={()=> updateProject(i)} onMouseLeave={()=> resetProject()} className={`block ${ i == 0 && 'border-t border-current' } transition-opacity ease-in-out duration-[200ms] ${activeState}`} key={i}>
+                  <li onMouseEnter={()=> updateProject(i)} onMouseLeave={()=> resetProject()} className={`block ${ i == 0 && 'border-t border-current' } transition-opacity ease-in-out duration-[400ms] ${activeState}`} key={i}>
                     <Project
                       title={e.title}
                       year={e.year}

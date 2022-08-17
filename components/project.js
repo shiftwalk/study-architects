@@ -52,43 +52,43 @@ export default function Project({ isOpen, title, status, year, projectCode, loca
         </span>
       </button>
       
-      {open && (
-        <div className="w-full py-5 border-b border-current">
-          <FsLightbox
-            toggler={lightboxController.toggler}
-            type="image"
-            sources={imageUrls}
-            slide={lightboxController.slide}
-          />
-          <m.div drag={images.length > 6 ? 'x' : false} dragConstraints={{ right: 0 }} dragMomentum={false} className={`w-auto whitespace-nowrap flex ${images.length > 6 ? 'cursor-grab' : '' }`}>
-            <div className="whitespace-nowrap space-x-5 items-end w-auto">
-              {images.map((e, i) => {
-                let activeState = 'opacity-30'
+      <div className={`w-full relative overflow-hidden transition-all ease-in-out duration-[450ms] ${open ? 'max-h-[55vw] md:max-h-[30vw]' : 'max-h-0' }`}>
+        <FsLightbox
+          toggler={lightboxController.toggler}
+          type="image"
+          sources={imageUrls}
+          slide={lightboxController.slide}
+        />
+        
+        <div className="absolute bottom-0 left-0 right-0 w-full border-b border-current"></div>
+        <m.div drag={images.length > 6 ? 'x' : false} dragConstraints={{ right: 0 }} dragMomentum={false} className={`w-auto py-5 whitespace-nowrap flex ${images.length > 6 ? 'cursor-grab' : '' }`}>
+          <div className="whitespace-nowrap space-x-5 items-end w-auto">
+            {images.map((e, i) => {
+              let activeState = 'opacity-30'
 
-                if (i == activeImage && hoveringImages) {
-                  activeState = 'opacity-100'
-                } 
-                if (!hoveringImages) {
-                  activeState = 'opacity-100'
-                }
+              if (i == activeImage && hoveringImages) {
+                activeState = 'opacity-100'
+              } 
+              if (!hoveringImages) {
+                activeState = 'opacity-100'
+              }
 
-                return (
-                  <button onMouseEnter={()=> updateImages(i)} onMouseLeave={()=> resetImages()} onClick={() => openLightboxOnSlide(i + 1)} className={`focus:outline-none focus:border-none w-[30vw] md:w-[16vw] max-w-[280px] inline-block transition-opacity ease-in-out duration-[200ms] ${activeState}`} key={i}>
-                    <Image
-                      image={e}
-                      focalPoint={e.asset.hotspot}
-                      layout="responsive"
-                      priority
-                      className="w-full pointer-events-none"
-                      sizes="(min-width: 768px) 25vw, 25vw"
-                    />
-                  </button>
-                )
-              })}
-            </div>
-          </m.div>
-        </div>
-      )}
+              return (
+                <button onMouseEnter={()=> updateImages(i)} onMouseLeave={()=> resetImages()} onClick={() => openLightboxOnSlide(i + 1)} className={`focus:outline-none focus:border-none w-[30vw] md:w-[16vw] max-w-[280px] inline-block transition-opacity ease-in-out duration-[400ms] ${activeState}`} key={i}>
+                  <Image
+                    image={e}
+                    focalPoint={e.asset.hotspot}
+                    layout="responsive"
+                    priority
+                    className="w-full pointer-events-none"
+                    sizes="(min-width: 768px) 25vw, 25vw"
+                  />
+                </button>
+              )
+            })}
+          </div>
+        </m.div>
+      </div>
     </>
   )
 }
