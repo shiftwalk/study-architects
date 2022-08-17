@@ -52,16 +52,16 @@ export default function Project({ isOpen, title, status, year, projectCode, loca
         </span>
       </button>
       
-      <div className={`w-full relative overflow-hidden transition-all ease-in-out duration-[450ms] ${open ? 'max-h-[55vw] md:max-h-[30vw]' : 'max-h-0' }`}>
-        <FsLightbox
+      <div className={`w-full relative overflow-hidden transition-all ease-in-out duration-[450ms] ${open ? 'max-h-[60vw] md:max-h-[40vw]' : 'max-h-0' }`}>
+        {/* <FsLightbox
           toggler={lightboxController.toggler}
           type="image"
           sources={imageUrls}
           slide={lightboxController.slide}
-        />
+        /> */}
         
         <div className="absolute bottom-0 left-0 right-0 w-full border-b border-current"></div>
-        <m.div drag={images.length > 6 ? 'x' : false} dragConstraints={{ right: 0 }} dragMomentum={false} className={`w-auto py-5 whitespace-nowrap flex ${images.length > 6 ? 'cursor-grab' : '' }`}>
+        <m.div drag={images.length > 3 ? 'x' : false} dragConstraints={{ right: 0 }} dragMomentum={false} className={`w-auto pt-4 pb-3 md:pt-5 md:pb-3 whitespace-nowrap flex ${images.length > 3 ? 'cursor-grab' : '' }`}>
           <div className="whitespace-nowrap space-x-5 items-end w-auto">
             {images.map((e, i) => {
               let activeState = 'opacity-30'
@@ -74,16 +74,18 @@ export default function Project({ isOpen, title, status, year, projectCode, loca
               }
 
               return (
-                <button onMouseEnter={()=> updateImages(i)} onMouseLeave={()=> resetImages()} onClick={() => openLightboxOnSlide(i + 1)} className={`focus:outline-none focus:border-none w-[30vw] md:w-[16vw] max-w-[280px] inline-block transition-opacity ease-in-out duration-[400ms] ${activeState}`} key={i}>
-                  <Image
-                    image={e}
-                    focalPoint={e.asset.hotspot}
-                    layout="responsive"
-                    priority
-                    className="w-full pointer-events-none"
-                    sizes="(min-width: 768px) 25vw, 25vw"
-                  />
-                </button>
+                <div className={`focus:outline-none focus:border-none w-[34vw] md:w-[22vw] max-w-[380px] inline-block transition-opacity ease-in-out duration-[400ms] overflow-hidden group ${activeState}`} key={i}>
+                  <div className="transform origin-center ease-in-out duration-[400ms] transition-transform group-hover:scale-[1.15]">
+                    <Image
+                      image={e}
+                      focalPoint={e.asset.hotspot}
+                      layout="responsive"
+                      priority
+                      className="w-full pointer-events-none"
+                      sizes="(min-width: 768px) 25vw, 25vw"
+                    />
+                  </div>
+                </div>
               )
             })}
           </div>
