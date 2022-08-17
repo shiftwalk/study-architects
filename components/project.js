@@ -73,7 +73,7 @@ export default function Project({ isOpen, title, status, year, projectCode, loca
                 }
 
                 return (
-                  <button onMouseEnter={()=> updateImages(i)} onMouseLeave={()=> resetImages()} onClick={() => openLightboxOnSlide(i + 1)} className={`focus:outline-none focus:border-none w-[30vw] md:w-[16vw] max-w-[280px] inline-block transition-opacity ease-in-out duration-[450ms] ${activeState}`} key={i}>
+                  <button onMouseEnter={()=> updateImages(i)} onMouseLeave={()=> resetImages()} onClick={() => openLightboxOnSlide(i + 1)} className={`focus:outline-none focus:border-none w-[30vw] md:w-[16vw] max-w-[280px] inline-block transition-opacity ease-in-out duration-[200ms] ${activeState}`} key={i}>
                     <Image
                       image={e}
                       focalPoint={e.asset.hotspot}

@@ -275,7 +275,7 @@ export default function Home(initialData) {
                   activeState = 'opacity-100'
                 }
                 return (
-                  <li onMouseEnter={()=> updateProject(i)} onMouseLeave={()=> resetProject()} className={`block ${ i == 0 && 'border-t border-current' } transition-opacity ease-in-out duration-[450ms] ${activeState}`} key={i}>
+                  <li onMouseEnter={()=> updateProject(i)} onMouseLeave={()=> resetProject()} className={`block ${ i == 0 && 'border-t border-current' } transition-opacity ease-in-out duration-[200ms] ${activeState}`} key={i}>
                     <Project
                       title={e.title}
                       year={e.year}
