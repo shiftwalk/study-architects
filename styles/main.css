@@ -44,3 +44,22 @@ body {
   70% {transform: translate(9%,4%);}
   90% {transform: translate(-1%,7%);}
 }
+
+
+[title='Exit fullscreen'] {
+  @apply hidden !important;
+}
+
+.fslightbox-toolbar {
+  @apply bg-transparent !important;
+}
+
+
+.fslightbox-fade-in-strong {
+  animation: none !important;
+  @apply delay-[0ms] !important;
+}
+
+.fslightbox-slide-btn {
+  @apply bg-transparent !important;
+}

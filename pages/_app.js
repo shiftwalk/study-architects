@@ -1,5 +1,5 @@
 import '@/styles/main.css'
-import { AnimatePresence, m, LazyMotion, domAnimation } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { DefaultSeo } from 'next-seo'
 import { ThemeProvider } from 'next-themes'
@@ -11,10 +11,10 @@ export default function App({ Component, pageProps }) {
   const router = useRouter()
   const [introContext, setIntroContext] = useState(false);
 
-  const introEnd = {
-    visible: { opacity: '100%' },
-    hidden: { opacity: 0 }
-  }
+  // const introEnd = {
+  //   visible: { opacity: '100%' },
+  //   hidden: { opacity: 0 }
+  // }
 
   return (
     <ThemeProvider attribute="class" defaultTheme="light">
@@ -53,7 +53,7 @@ export default function App({ Component, pageProps }) {
           )}
         </LazyMotion> */}
 
-        <div className="grain fixed inset-0 z-[10000000] pointer-events-none"></div>
+        
         
         <DefaultSeo {...SEO} />
 

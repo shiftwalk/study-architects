@@ -1,6 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="px-[20px] relative z-[100] bg-white dark:bg-black">
+    <footer className="px-[20px] relative z-[100] bg-white dark:bg-black overflow-hidden">
+      <div className="grain absolute inset-0 z-[10000000] pointer-events-none opacity-50"></div>
       <div className="border-t border-current py-3">
         <div className="md:flex md:flex-wrap">
           <div className="md:mr-auto md:w-auto mb-1 md:mb-0">
