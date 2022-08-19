@@ -3,7 +3,7 @@
   & > p {
     @apply mb-5 last-of-type:mb-0 leading-[1.08];
 
-    font-size: clamp(16px,0.92rem + 0.4vw, 25px)
+    font-size: clamp(18px,0.92rem + 0.4vw, 25px)
   }
 
   & > p:first-of-type {
@@ -38,6 +38,16 @@ h1, .h1, h2, .h2, h3, .h3 {
   @apply font-serif leading-[0.9];
 
   font-size: clamp(45px,0.92rem + 5vw, 130px)
+}
+
+.display-heading--small {
+  @apply font-serif leading-[0.9];
+
+  font-size: clamp(30px,0.92rem + 2vw, 130px);
+
+  @screen md {
+    font-size: clamp(45px,0.92rem + 5vw, 130px);
+  }
 }
 
 .list-heading {

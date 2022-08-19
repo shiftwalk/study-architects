@@ -39,16 +39,16 @@ export default function Project({ isOpen, title, status, year, projectCode, loca
 
   return (
     <>
-      <button onClick={() => setOpen(open ? false : true)} className="border-b border-current flex items-center flex-wrap py-5 w-full outline-none focus:outline-none text-left">
+      <button onClick={() => setOpen(open ? false : true)} className="border-b border-current flex items-center flex-wrap py-4 md:py-5 w-full outline-none focus:outline-none text-left">
         <span className="block list-heading w-full md:flex-1 mb-3 md:mb-0 pr-8">
           {title}
         </span>
 
-        <span className="w-full md:w-auto md:ml-auto flex space-x-[3vw] text-sm leading-none md:text-lg md:leading-none">
-          <span className="block uppercase w-[90px] md:w-[110px]">{location}</span>
-          <span className="block uppercase w-[50px] md:w-[60px]">{year}</span>
-          <span className="block uppercase w-[110px] md:w-[130px]">{status ? status : 'In Progress'}</span>
-          <span className="block uppercase w-[65px]">{projectCode}</span>
+        <span className="w-full md:w-auto md:ml-auto flex space-x-[3vw] md:space-x-[2vw] text-xs leading-none md:text-base md:leading-none">
+          <span className="block uppercase flex-1 md:flex-none md:w-[110px]">{location}</span>
+          <span className="block uppercase flex-1 md:flex-none md:w-[60px]">{year}</span>
+          <span className="block uppercase flex-1 md:flex-none md:w-[130px]">{status ? status : 'In Progress'}</span>
+          <span className="block uppercase flex-1 md:flex-none md:w-[65px] tabular-nums text-right">{projectCode}</span>
         </span>
       </button>
       
@@ -75,7 +75,7 @@ export default function Project({ isOpen, title, status, year, projectCode, loca
 
               return (
                 <div className={`focus:outline-none focus:border-none w-[34vw] md:w-[22vw] max-w-[380px] inline-block transition-opacity ease-in-out duration-[400ms] overflow-hidden group ${activeState}`} key={i}>
-                  <div className="transform origin-center ease-in-out duration-[400ms] transition-transform group-hover:scale-[1.15]">
+                  <div className="transform origin-center ease-in-out duration-[750ms] transition-transform group-hover:scale-[1.1]">
                     <Image
                       image={e}
                       focalPoint={e.asset.hotspot}

@@ -109,7 +109,7 @@ export default function Home(initialData) {
           exit="exit"
           className="relative overflow-hidden"
         >
-          <button onClick={() => toggleTheme() } className="focus:outline-none border-none block fixed top-0 right-0 w-[30px] md:w-[37px] h-[30px] md:h-[37px] bg-current dark:bg-off-white rounded-full m-[20px] z-[1000]">
+          <button onClick={() => toggleTheme() } className="focus:outline-none border-none block fixed top-0 right-0 w-[35px] md:w-[37px] h-[35px] md:h-[37px] bg-current dark:bg-off-white rounded-full m-[20px] z-[1000] hover:scale-[0.85] transition-transform ease-in-out duration-300">
           </button>
 
           <div 
@@ -149,7 +149,7 @@ export default function Home(initialData) {
             </m.div> */}
 
             <div className="w-[100vw] relative">
-              <span className="absolute inset-0 w-full text-white text-center flex items-center justify-center z-[100] text-[22px] md:text-[25px] xl:text-[28px] opacity-80">
+              <span className="absolute inset-0 w-full text-white text-center flex items-center justify-center z-[100] text-[19px] md:text-[25px] xl:text-[28px] opacity-80">
                 {home.heroText}
               </span>
               <svg className="w-full mix-blend-multiply dark:mix-blend-normal z-[99]" viewBox="0 0 1599 396" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="#232323"><path d="m124.767 230.298 50.017 10.443c24.184 4.946 40.673 14.29 40.673 36.825 0 26.383-25.283 40.673-56.062 40.673-30.23 0-55.514-13.191-62.659-45.07H0c8.794 79.148 76.95 122.569 159.395 122.569 81.895 0 153.348-45.07 153.348-121.469 0-59.911-35.177-100.584-117.072-115.974l-50.567-10.443c-20.337-4.397-39.574-11.542-39.574-33.528 0-25.283 26.383-36.825 48.368-36.825 25.833 0 46.719 12.092 53.315 39.574h96.736C292.956 41.773 230.847 0 153.898 0 79.148 0 8.245 42.872 8.245 117.622c0 61.559 41.772 98.385 116.522 112.676ZM601.377 5.496H302.375v77.5h101.133v307.246h96.736V82.995h101.133V5.496ZM779.631 395.738c124.768 0 163.792-72.552 163.792-156.097V5.496h-96.736v234.145c0 39.574-10.993 78.598-67.056 78.598-56.612 0-67.055-39.024-67.055-78.598V5.496H615.29v234.145c0 83.545 37.375 156.097 164.341 156.097ZM1076.65 312.743h-21.44V82.995h21.44c81.89 0 112.12 45.62 112.12 114.874 0 69.254-30.23 114.874-112.12 114.874Zm-118.725 77.499h118.725c139.05 0 208.86-78.049 208.86-192.373 0-114.324-69.81-192.373-208.86-192.373H957.925v384.746Z"/><path d="M1364.36 390.242h96.73V250.085L1598.5 5.496h-102.23l-83.55 154.998-83.54-154.998h-102.23l137.41 243.489v141.257ZM1597.68 341.985c0 27.555-22.34 49.892-49.89 49.892s-49.89-22.337-49.89-49.892c0-27.555 22.34-49.893 49.89-49.893s49.89 22.338 49.89 49.893Z"/></g></svg>
@@ -169,15 +169,15 @@ export default function Home(initialData) {
               <span className="block">California 94103</span>
             </span> */}
 
-            <h1 className="display-heading w-[85vw] mb-12 md:mb-[8vw] md:indent-[25vw]">{home.contentHeading}</h1>
+            <h1 className="display-heading w-[85vw] mb-12 md:mb-[8vw] indent-[25vw] md:indent-[25vw]">{home.contentHeading}</h1>
 
-            <div className="whitespace-nowrap flex items-start mx-[-20px] ml-[-8vw] mb-12 md:mb-[8vw]">
+            <div className="whitespace-nowrap flex items-start mx-[-20px] ml-[-8vw] mb-[17.5vw] md:mb-[8vw]">
               <m.span
                 drag
                 dragConstraints={constraintsRef}
                 dragMomentum={false}
                 whileDrag={{ scale: 0.95 }} 
-                className="inline-block w-[25vw] mr-[8vw] cursor-grab"
+                className="hidden md:inline-block w-[25vw] mr-[8vw] cursor-grab"
               >
                 <Image
                   image={home.imageGrid[0]}
@@ -193,7 +193,7 @@ export default function Home(initialData) {
                 dragConstraints={constraintsRef}
                 dragMomentum={false}
                 whileDrag={{ scale: 0.95 }} 
-                className="inline-block w-[25vw] mr-[8vw] cursor-grab"
+                className="inline-block w-[50vw] md:w-[25vw] mr-[8vw] cursor-grab"
               >
                 <Image
                   image={home.imageGrid[1]}
@@ -209,7 +209,7 @@ export default function Home(initialData) {
                 dragConstraints={constraintsRef}
                 dragMomentum={false}
                 whileDrag={{ scale: 0.95 }} 
-                className="inline-block w-[25vw] mr-[8vw] cursor-grab"
+                className="inline-block w-[50vw] md:w-[25vw] mr-[-5vw] md:mr-[8vw] cursor-grab"
               >
                 <Image
                   image={home.imageGrid[2]}
@@ -225,7 +225,7 @@ export default function Home(initialData) {
                 dragConstraints={constraintsRef}
                 dragMomentum={false}
                 whileDrag={{ scale: 0.95 }} 
-                className="inline-block w-[25vw] mr-[-8vw] cursor-grab"
+                className="w-[25vw] mr-[-8vw] cursor-grab hidden md:inline-block"
               >
                 <Image
                   image={home.imageGrid[3]}
@@ -238,7 +238,7 @@ export default function Home(initialData) {
               </m.span>
             </div>
 
-            <div className="content w-11/12 md:w-1/3 max-w-[450px] md:mx-auto mb-[15vw] md:mb-[12vw] xl:mb-[10vw]">
+            <div className="content w-10/12 md:w-1/3 max-w-[450px] md:mx-auto mb-[20vw] md:mb-[12vw] xl:mb-[10vw]">
               <SanityBlockContent serializers={{ container: ({ children }) => children }} blocks={home.contentText} />
             </div>
 
@@ -275,7 +275,7 @@ export default function Home(initialData) {
                   activeState = 'opacity-100'
                 }
                 return (
-                  <li onMouseEnter={()=> updateProject(i)} onMouseLeave={()=> resetProject()} className={`block ${ i == 0 && 'border-t border-current' } transition-opacity ease-in-out duration-[400ms] ${activeState}`} key={i}>
+                  <li onMouseEnter={()=> updateProject(i)} onMouseLeave={()=> resetProject()} className={`block ${ i == 0 && 'border-t border-current' } transition-opacity ease-in-out duration-[250ms] ${activeState}`} key={i}>
                     <Project
                       title={e.title}
                       year={e.year}
@@ -291,7 +291,7 @@ export default function Home(initialData) {
             </ul>
             
             <div className="text-center my-[20vw] md:my-[13vw]">
-              <a href={`mailto:${contact.emailAddress}`} className="display-heading font-sans group tracking-tight relative inline-block">
+              <a href={`mailto:${contact.emailAddress}`} className="display-heading--small font-sans group tracking-tight relative inline-block">
                 <span className="inline-block md:group-hover:translate-y-[-1.2vw] transition-translate ease-in-out duration-500">{contact.emailAddress.replace('@', '[at]')}</span>
 
                 <div className="w-0 md:group-hover:w-full transition-all delay-75 ease-in-out duration-500 h-1 md:mb-[-1.2vw] bg-current absolute bottom-0 left-0 right-0"></div>
