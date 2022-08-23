@@ -7,6 +7,13 @@ export default {
     locale: 'en_GB',
     url: 'https://study-architects.vercel.app/',
     site_name: 'Study Architects',
+    images: [
+      {
+        url: '/images/social.jpg',
+        width: 1200,
+        height: 600
+      },
+    ]
   },
   twitter: {
     handle: '@samuelgoddard',
