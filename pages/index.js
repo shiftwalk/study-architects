@@ -152,7 +152,7 @@ export default function Home(initialData) {
           <div 
             className="bg-[#7FA9B3] dark:bg-[#CA8FA4] w-full h-screen p-[20px] flex items-center justify-center fixed top-0 z-[10] overflow-hidden"
           >
-            <div className="grain fixed inset-0 z-[10000000] pointer-events-none"></div>
+            <div className="grain fixed inset-0 z-[10000000] pointer-events-none opacity-40"></div>
 
             <m.span
               initial="initial"
@@ -233,7 +233,7 @@ export default function Home(initialData) {
           </div>
 
           <article className="relative p-[20px] mt-[100vh] pt-[8vw] md:pt-[6vw] bg-white dark:bg-black z-[100] overflow-hidden">
-            <div className="grain absolute inset-0 z-[10000000] pointer-events-none opacity-60"></div>
+            <div className="grain fixed inset-0 z-[10000000] pointer-events-none opacity-60"></div>
 
             <div className="relative">
 
