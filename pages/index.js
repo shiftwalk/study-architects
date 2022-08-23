@@ -248,7 +248,7 @@ export default function Home(initialData) {
 
             <h1 className="display-heading w-[85vw] mb-12 md:mb-[8vw] indent-[25vw] md:indent-[25vw]">{home.contentHeading}</h1>
 
-            <div className="whitespace-nowrap flex items-start mx-[-20px] ml-[-8vw] mb-[17.5vw] md:mb-[8vw]">
+            <div className="whitespace-nowrap flex items-start mx-[-20px] ml-[-8vw] mb-[22vw] md:mb-[8vw]">
               <m.span
                 drag
                 dragConstraints={constraintsRef}
@@ -315,7 +315,7 @@ export default function Home(initialData) {
               </m.span>
             </div>
 
-            <div className="content w-10/12 md:w-1/3 max-w-[450px] md:mx-auto mb-[20vw] md:mb-[12vw] xl:mb-[10vw]">
+            <div className="content w-10/12 md:w-1/3 max-w-[450px] md:mx-auto mb-[30vw] md:mb-[12vw] xl:mb-[10vw]">
               <SanityBlockContent serializers={{ container: ({ children }) => children }} blocks={home.contentText} />
             </div>
 
