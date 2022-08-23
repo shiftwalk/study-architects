@@ -77,7 +77,39 @@ export default function Project({ isOpen, title, status, year, projectCode, loca
               animate={{ x: 0, opacity: 1, transition: { duration: 0.65, ease: [0.83, 0, 0.17, 1] } }}
               exit={{ x: '5%', opacity: 0, transition: { duration: 0.4, ease: [0.83, 0, 0.17, 1] } }}
             >
-              <m.div drag={images.length > 3 ? 'x' : false} dragConstraints={{ right: 0 }} dragMomentum={false} className={`w-auto pt-4 pb-3 md:pt-5 md:pb-3 whitespace-nowrap flex ${images.length > 3 ? 'cursor-grab' : '' }`}>
+              <m.div drag={images.length > 3 ? 'x' : false} dragConstraints={{ right: 0 }} dragMomentum={false} className={`w-auto pt-4 pb-3 md:pt-5 md:pb-3 whitespace-nowrap hidden md:flex ${images.length > 3 ? 'cursor-grab' : '' }`}>
+                <div className="whitespace-nowrap space-x-5 items-end w-auto">
+                  {images.map((e, i) => {
+                    let activeState = 'opacity-30'
+
+                    if (i == activeImage && hoveringImages) {
+                      activeState = 'opacity-100'
+                    } 
+                    if (!hoveringImages) {
+                      activeState = 'opacity-100'
+                    }
+
+                    return (
+                      <div className={`focus:outline-none focus:border-none w-[34vw] md:w-[22vw] max-w-[380px] inline-block transition-opacity ease-in-out duration-[400ms] overflow-hidden group ${activeState}`} key={i}>
+                        <div className="transform origin-center ease-in-out duration-[1200ms] transition-transform scale-[1.005] group-hover:scale-[1.1]">
+                          <Image
+                            image={e}
+                            focalPoint={e.asset.hotspot}
+                            layout="responsive"
+                            priority
+                            className="w-full pointer-events-none"
+                            sizes="(min-width: 768px) 25vw, 25vw"
+                          />
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </m.div>
+
+
+              {/* Mobile */}
+              <m.div drag={images.length > 1 ? 'x' : false} dragConstraints={{ right: 0 }} dragMomentum={false} className={`w-auto pt-4 pb-3 md:pt-5 md:pb-3 whitespace-nowrap flex md:hidden ${images.length > 1 ? 'cursor-grab' : '' }`}>
                 <div className="whitespace-nowrap space-x-5 items-end w-auto">
                   {images.map((e, i) => {
                     let activeState = 'opacity-30'

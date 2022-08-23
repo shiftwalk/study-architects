@@ -232,10 +232,11 @@ export default function Home(initialData) {
             </div>
           </div>
 
-          <div className="absolute top-[-10vw] left-[-15vw] right-[-15vw] bottom-[-10vw] w-[130vw] h-full flex overflow-x-hidden items-start mb-12 md:mb-[5vw] overflow-hidden" ref={constraintsRef}>
-          </div>
-
           <article className="relative p-[20px] mt-[100vh] pt-[8vw] md:pt-[6vw] bg-white dark:bg-black z-[100] overflow-hidden">
+            <div className="relative">
+
+            <div className="absolute top-[-10vw] left-[-15vw] right-[-15vw] bottom-[-50vw] w-[130vw] h-full flex overflow-x-hidden items-start mb-12 md:mb-[5vw] overflow-hidden" ref={constraintsRef}>
+            </div>
 
             <div className="grain absolute inset-0 z-[10000000] pointer-events-none opacity-50"></div>
             {/* <span className="block md:fixed top-0 left-0 text-sm md:text-[1.2vw] xl:text-[1.05vw] 2xl:text-[17px] leading-none md:leading-none 2xl:leading-none mb-8 md:mb-0 md:p-[20px]">
@@ -316,6 +317,8 @@ export default function Home(initialData) {
 
             <div className="content w-10/12 md:w-1/3 max-w-[450px] md:mx-auto mb-[20vw] md:mb-[12vw] xl:mb-[10vw]">
               <SanityBlockContent serializers={{ container: ({ children }) => children }} blocks={home.contentText} />
+            </div>
+
             </div>
 
 
