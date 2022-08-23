@@ -37,13 +37,13 @@ h1, .h1, h2, .h2, h3, .h3 {
 .display-heading {
   @apply font-serif leading-[0.9];
 
-  font-size: clamp(45px,0.92rem + 5vw, 130px)
+  font-size: clamp(40px,0.92rem + 5vw, 130px)
 }
 
 .display-heading--small {
   @apply font-serif leading-[0.9];
 
-  font-size: clamp(30px,0.92rem + 2vw, 130px);
+  font-size: clamp(27px,0.92rem + 2vw, 130px);
 
   @screen md {
     font-size: clamp(45px,0.92rem + 5vw, 130px);

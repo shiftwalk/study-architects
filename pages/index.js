@@ -4,18 +4,19 @@ import { fade } from '@/helpers/transitions'
 import { LazyMotion, domMax, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import { useTheme } from 'next-themes'
-import { useRef, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import Project from '@/components/project'
 import SanityPageService from '@/services/sanityPageService'
 import SanityBlockContent from '@sanity/block-content-to-react'
 import Image from '@/components/image'
+import { OpenProjectsContext } from '@/context/openProjects'
 
 const query = `{
   "home": *[_type == "home"][0]{
     title,
     contentHeading,
     heroText,
-    heroImage {
+    heroImage[] {
       asset-> {
         ...,
       },
@@ -45,7 +46,7 @@ const query = `{
       }
     }
   },
-  "projects": *[_type == "projects"]{
+  "projects": *[_type == "projects"] | order(orderRank) {
     title,
     location,
     projectCode,
@@ -54,6 +55,11 @@ const query = `{
     images[] {
       asset-> {
         ...,
+      },
+      overrideVideo {
+        asset-> {
+          ...
+        }
       },
       caption,
       alt,
@@ -78,6 +84,7 @@ export default function Home(initialData) {
   const {theme, setTheme} = useTheme()
 
   const [hoveringProjects, setHoveringProjects] = useState(false)
+  const [openProjects, setOpenProjects] =  useContext(OpenProjectsContext)
   const [activeProject, setActiveProject] = useState(0)
 
   const toggleTheme = () => {
@@ -129,15 +136,17 @@ export default function Home(initialData) {
               dragMomentum={false}
               whileDrag={{ scale: 0.95 }} 
               className="absolute top-0 left-0 ml-[12vw] mt-[10vh] z-[101] bg-blend-screen mix-blend-screen opacity-80 cursor-grab block">
-
-              <Image
-                image={home.heroImage}
-                focalPoint={home.heroImage.asset.hotspot}
-                layout="responsive"
-                priority
-                className="rounded-full w-[45vw] md:w-[24vw] max-w-[450px] pointer-events-none"
-                sizes="(min-width: 768px) 50vw, 50vw"
-              />
+              
+              <div className="w-[45vw] md:w-[24vw] max-w-[450px] h-[45vw] md:h-[24vw] max-h-[450px] group rounded-full relative overflow-hidden">
+                <Image
+                  image={home.heroImage[Math.floor(Math.random() * ((home.heroImage.length - 1) - 0 + 1)) + 0]}
+                  focalPoint={home.heroImage[Math.floor(Math.random() * ((home.heroImage.length - 1) - 0 + 1)) + 0].asset.hotspot}
+                  layout="fill"
+                  priority
+                  className="rounded-full pointer-events-none absolute inset-0 w-full h-full object-cover object-center scale-[1.005] group-hover:scale-[1.05] transition-transform ease-in-out duration-[1200ms]"
+                  sizes="(min-width: 768px) 50vw, 50vw"
+                />
+              </div>
             </m.div>
 
             {/* <m.div
@@ -177,14 +186,14 @@ export default function Home(initialData) {
                 dragConstraints={constraintsRef}
                 dragMomentum={false}
                 whileDrag={{ scale: 0.95 }} 
-                className="hidden md:inline-block w-[25vw] mr-[8vw] cursor-grab"
+                className="hidden md:inline-block w-[25vw] mr-[8vw] cursor-grab group overflow-hidden relative"
               >
                 <Image
                   image={home.imageGrid[0]}
                   focalPoint={home.imageGrid[0].asset.hotspot}
                   layout="responsive"
                   priority
-                  className="w-full pointer-events-none"
+                  className="w-full pointer-events-none scale-[1.005] group-hover:scale-[1.05] transition-transform ease-in-out duration-[1200ms]"
                   sizes="(min-width: 768px) 60vw, 60vw"
                 />
               </m.span>
@@ -193,14 +202,14 @@ export default function Home(initialData) {
                 dragConstraints={constraintsRef}
                 dragMomentum={false}
                 whileDrag={{ scale: 0.95 }} 
-                className="inline-block w-[50vw] md:w-[25vw] mr-[8vw] cursor-grab"
+                className="inline-block w-[50vw] md:w-[25vw] mr-[8vw] cursor-grab group overflow-hidden relative"
               >
                 <Image
                   image={home.imageGrid[1]}
                   focalPoint={home.imageGrid[1].asset.hotspot}
                   layout="responsive"
                   priority
-                  className="w-full pointer-events-none"
+                  className="w-full pointer-events-none scale-[1.005] group-hover:scale-[1.05] transition-transform ease-in-out duration-[1200ms]"
                   sizes="(min-width: 768px) 60vw, 60vw"
                 />
               </m.span>
@@ -209,14 +218,14 @@ export default function Home(initialData) {
                 dragConstraints={constraintsRef}
                 dragMomentum={false}
                 whileDrag={{ scale: 0.95 }} 
-                className="inline-block w-[50vw] md:w-[25vw] mr-[-5vw] md:mr-[8vw] cursor-grab"
+                className="inline-block w-[50vw] md:w-[25vw] mr-[-5vw] md:mr-[8vw] cursor-grab group overflow-hidden relative"
               >
                 <Image
                   image={home.imageGrid[2]}
                   focalPoint={home.imageGrid[2].asset.hotspot}
                   layout="responsive"
                   priority
-                  className="w-full pointer-events-none"
+                  className="w-full pointer-events-none scale-[1.005] group-hover:scale-[1.05] transition-transform ease-in-out duration-[1200ms]"
                   sizes="(min-width: 768px) 60vw, 60vw"
                 />
               </m.span>
@@ -225,14 +234,14 @@ export default function Home(initialData) {
                 dragConstraints={constraintsRef}
                 dragMomentum={false}
                 whileDrag={{ scale: 0.95 }} 
-                className="w-[25vw] mr-[-8vw] cursor-grab hidden md:inline-block"
+                className="w-[25vw] mr-[-8vw] cursor-grab group overflow-hidden relative hidden md:inline-block"
               >
                 <Image
                   image={home.imageGrid[3]}
                   focalPoint={home.imageGrid[3].asset.hotspot}
                   layout="responsive"
                   priority
-                  className="w-full pointer-events-none"
+                  className="w-full pointer-events-none scale-[1.005] group-hover:scale-[1.05] transition-transform ease-in-out duration-[1200ms]"
                   sizes="(min-width: 768px) 60vw, 60vw"
                 />
               </m.span>
@@ -265,7 +274,6 @@ export default function Home(initialData) {
               })} */}
 
               {projects.map((e, i) => {
-
                 let activeState = 'opacity-30'
 
                 if (i == activeProject && hoveringProjects) {
@@ -274,8 +282,16 @@ export default function Home(initialData) {
                 if (!hoveringProjects) {
                   activeState = 'opacity-100'
                 }
+                if (openProjects.includes(i)) {
+                  activeState = 'opacity-100'
+                }
                 return (
-                  <li onMouseEnter={()=> updateProject(i)} onMouseLeave={()=> resetProject()} className={`block ${ i == 0 && 'border-t border-current' } transition-opacity ease-in-out duration-[250ms] ${activeState}`} key={i}>
+                  <li
+                    onMouseEnter={()=> updateProject(i)}
+                    onMouseLeave={()=> resetProject()}
+                    className={`block ${ i == 0 && 'border-t border-current' } transition-opacity ease-in-out duration-[150ms] ${activeState}`}
+                    key={i}
+                  >
                     <Project
                       title={e.title}
                       year={e.year}
@@ -284,6 +300,7 @@ export default function Home(initialData) {
                       projectCode={e.projectCode}
                       images={e.images}
                       isOpen={i == 1}
+                      i={i}
                     />
                   </li>
                 )
