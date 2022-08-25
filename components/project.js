@@ -54,9 +54,9 @@ export default function Project({ isOpen, title, status, year, projectCode, loca
 
         <span className="w-full md:w-auto md:ml-auto flex space-x-[3vw] md:space-x-[2vw] text-xs leading-none md:text-base md:leading-none">
           <span className="block uppercase flex-1 md:flex-none md:w-[110px]">{location}</span>
-          <span className="block uppercase w-[50px] md:flex-none md:w-[60px]">{year}</span>
-          <span className="block uppercase flex-1 md:flex-none md:w-[130px]">{status ? status : 'In Progress'}</span>
-          <span className="block uppercase flex-1 md:flex-none md:w-[65px] tabular-nums text-right">{projectCode}</span>
+          <span className="block uppercase w-[80px] md:flex-none md:w-[80px]">{year}</span>
+          <span className="block uppercase flex-1 md:flex-none md:w-[130px] text-right">{status ? status : 'In Progress'}</span>
+          {/* <span className="block uppercase flex-1 md:flex-none md:w-[65px] tabular-nums text-right">{projectCode}</span> */}
         </span>
       </button>
       
