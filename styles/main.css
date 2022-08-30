@@ -63,3 +63,8 @@ body {
 .fslightbox-slide-btn {
   @apply bg-transparent !important;
 }
+
+.roundd {
+  border-radius: 100% !important;
+  transform: translateZ(0)
+}

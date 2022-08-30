@@ -55,3 +55,15 @@ h1, .h1, h2, .h2, h3, .h3 {
 
   font-size: clamp(28px,0.62rem + 5vw, 80px)
 }
+
+.list-heading--small {
+  @apply font-serif leading-[0.9];
+
+  font-size: clamp(22px,0.62rem + 3vw, 55px)
+}
+
+.list-heading--meta {
+  @apply mb-0 leading-[1.08];
+
+  font-size: clamp(18px,0.92rem + 0.4vw, 25px)
+}

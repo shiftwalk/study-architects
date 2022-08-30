@@ -52,6 +52,25 @@ const query = `{
     projectCode,
     status,
     year,
+    childProjects[] {
+      title,
+      images[] {
+        asset-> {
+          ...,
+        },
+        overrideVideo {
+          asset-> {
+            ...
+          }
+        },
+        caption,
+        alt,
+        hotspot {
+          x,
+          y
+        },
+      },
+    },
     images[] {
       asset-> {
         ...,
@@ -177,7 +196,7 @@ export default function Home(initialData) {
               whileDrag={{ scale: 0.95 }} 
               className="absolute top-0 left-0 ml-[12vw] mt-[10vh] z-[101] bg-blend-screen mix-blend-screen opacity-80 cursor-grab block">
               
-              <div className="w-[45vw] md:w-[24vw] max-w-[450px] h-[45vw] md:h-[24vw] max-h-[450px] group rounded-full relative overflow-hidden">
+              <div className="w-[45vw] md:w-[24vw] max-w-[450px] h-[45vw] md:h-[24vw] max-h-[450px] group roundd relative overflow-hidden">
                 <m.div 
                   initial="initial"
                   className="w-full h-full absolute inset-0"
@@ -190,7 +209,7 @@ export default function Home(initialData) {
                     focalPoint={home.heroImage[Math.floor(Math.random() * ((home.heroImage.length - 1) - 0 + 1)) + 0].asset.hotspot}
                     layout="fill"
                     priority
-                    className="rounded-full pointer-events-none absolute inset-0 w-full h-full object-cover object-center scale-[1.005] group-hover:scale-[1.05] transition-transform ease-in-out duration-[1200ms]"
+                    className="roundd pointer-events-none absolute inset-0 w-full h-full object-cover object-center scale-[1.005] group-hover:scale-[1.05] transition-transform ease-in-out duration-[1200ms]"
                     sizes="(min-width: 768px) 50vw, 50vw"
                   />
                 </m.div>
@@ -324,7 +343,7 @@ export default function Home(initialData) {
 
             <div className="content content--no-indent flex">
               <p className="block">Projects</p>
-              <p className="ml-auto block">( {projects.length} )</p>
+              <p className="ml-auto block">({projects.length})</p>
             </div>
             <ul>
               {/* {Array.from(Array(10), (e, i) => {
@@ -370,6 +389,7 @@ export default function Home(initialData) {
                       projectCode={e.projectCode}
                       images={e.images}
                       isOpen={i == 1}
+                      children={e.childProjects}
                       i={i}
                     />
                   </li>
