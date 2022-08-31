@@ -91,6 +91,8 @@ const query = `{
   "contact": *[_type == "contact"][0]{
     emailAddress,
     address,
+    addressLine2,
+    addressLine3,
     instagram
   }
 }`
@@ -181,9 +183,9 @@ export default function Home(initialData) {
               className="absolute top-0 left-0 text-sm md:text-[15px] xl:text-[17px] leading-none md:leading-none 2xl:leading-none mb-8 md:mb-0 p-[20px] dark:text-black"
             >
               <span className="block">STUDY.</span>
-              <span className="block">81 Langton Street Unit 11,</span>
-              <span className="block">San Francisco,</span>
-              <span className="block">California 94103</span>
+              <span className="block">{contact.address}</span>
+              <span className="block">{contact.addressLine2}</span>
+              <span className="block">{contact.addressLine3}</span>
             </m.span>
 
             <m.div
@@ -408,7 +410,7 @@ export default function Home(initialData) {
         </m.main>
       </LazyMotion>
 
-      <Footer address={contact.address} instagram={contact.instagram} />
+      <Footer address={`${contact.address}, ${contact.addressLine2}, ${contact.addressLine3}`} instagram={contact.instagram} />
     </Layout>
   )
 }
