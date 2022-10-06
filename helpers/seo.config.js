@@ -1,11 +1,11 @@
 export default {
-  defaultTitle: 'Buildings & Spaces That Tell Stories | Study Architects',
+  defaultTitle: 'Study Architects',
   description: 'We focus on creating buildings and spaces that tell stories, not only through the structural decisions that we make, but in the materials we choose to define them, and the tiniest details that we fill them with.',
-  titleTemplate: '%s | Study Architects',
+  titleTemplate: 'Study Architects',
   openGraph: {
     type: 'website',
     locale: 'en_GB',
-    url: 'https://study-architects.vercel.app/',
+    url: 'https://www.study-arch.com/',
     site_name: 'Study Architects',
     images: [
       {
