@@ -10,6 +10,7 @@ import SanityPageService from '@/services/sanityPageService'
 import SanityBlockContent from '@sanity/block-content-to-react'
 import Image from '@/components/image'
 import { OpenProjectsContext } from '@/context/openProjects'
+import Press from '@/components/press'
 
 const query = `{
   "home": *[_type == "home"][0]{
@@ -90,17 +91,24 @@ const query = `{
   },
   "contact": *[_type == "contact"][0]{
     emailAddress,
+    prEmailAddress,
     address,
     addressLine2,
     addressLine3,
     instagram
+  },
+  "press": *[_type == "press"] | order(orderRank) {
+    title,
+    type,
+    publication,
+    link
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function Home(initialData) {
-  const { data: { home, projects, contact } } = pageService.getPreviewHook(initialData)()
+  const { data: { home, projects, contact, press } } = pageService.getPreviewHook(initialData)()
   const constraintsRef = useRef(null)
   const {theme, setTheme} = useTheme()
 
@@ -406,6 +414,8 @@ export default function Home(initialData) {
                 <div className="w-0 md:group-hover:w-full transition-all delay-75 ease-in-out duration-500 h-1 md:mb-[-1.2vw] bg-current absolute bottom-0 left-0 right-0"></div>
               </a>
             </div>
+
+            <Press items={press} email={contact.prEmailAddress} />
           </article>
         </m.main>
       </LazyMotion>

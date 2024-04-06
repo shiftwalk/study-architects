@@ -68,3 +68,51 @@ body {
   border-radius: 100% !important;
   transform: translateZ(0)
 }
+
+.embla {
+  margin: auto;
+  --slide-height: 19rem;
+  --slide-spacing: 1rem;
+  --slide-size: 90%;
+
+  @screen md {
+    --slide-size: 33.4%;
+  }
+}
+.embla__viewport {
+  overflow: hidden;
+}
+.embla__container {
+  backface-visibility: hidden;
+  display: flex;
+  touch-action: pan-y;
+}
+.embla__slide {
+  /* flex: 0 0 var(--slide-size); */
+  min-width: 0;
+}
+
+.anim-underline {
+  /* I don't know why this is needed, I just added it and it worked in IE Edge. If we remove this width, the gradient breaks in IE Edge */
+  width: calc(100%);
+  background-image: linear-gradient(transparent calc(93% - 0px), black 0px);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background;
+
+  @apply ease-in-out duration-1000;
+}
+
+@screen md {
+  .hover-underline:hover {
+    .anim-underline {
+      background-size: 100% 100%;
+    }
+  }
+}
+
+.dark {
+  .anim-underline {
+    background-image: linear-gradient(transparent calc(93% - 0px), #DBDBDB 0px);
+  } 
+}
