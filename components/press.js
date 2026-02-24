@@ -31,7 +31,7 @@ export default function Press({ props, items, email }) {
                   <div className={`embla__slide flex-[0_0_90%] ${items.length == 2 ? 'md:flex-[0_0_50.3%]' : 'md:flex-[0_0_33.4%]' } border-r border-black dark:border-texture-white flex items-center text-center aspect-[10/8]`} key={i}>
                     <a href={e.link} target="_blank" rel="noopener noreferrer" className="w-full flex flex-wrap py-[10vw] md:py-[5vw] hover-underline text-center justify-center px-[2vw]">
                       <span className="block uppercase text-xs mb-4 md:mb-6">{e.publication}</span>
-                      <span className="inline font-serif text-[7.5vw] md:text-[3.5vw] lg:text-[3.3vw] leading-none mb-4 md:mb-6 mix-blend-difference bg-blend-difference"><span className="anim-underline mix-blend-difference bg-blend-difference">{e.title}</span></span>
+                      <span className="inline font-serif text-[7.5vw] md:text-[2.5vw] lg:text-[2vw] leading-none mb-4 md:mb-6 mix-blend-difference bg-blend-difference"><span className="anim-underline mix-blend-difference bg-blend-difference">{e.title}</span></span>
                       <span className="block uppercase text-xs">{e.type}</span>
                     </a>
                   </div>
@@ -42,7 +42,7 @@ export default function Press({ props, items, email }) {
                   <div className={`embla__slide flex-[0_0_90%] ${items.length == 2 ? 'md:flex-[0_0_50.3%]' : 'md:flex-[0_0_33.4%]' } border-r border-black dark:border-texture-white flex items-center text-center aspect-[10/8]`} key={i}>
                     <a href={e.link} target="_blank" rel="noopener noreferrer" className="w-full flex flex-wrap py-[10vw] md:py-[5vw] hover-underline text-center justify-center px-[2vw]">
                       <span className="block uppercase text-xs mb-4 md:mb-6">{e.publication}</span>
-                      <span className="inline font-serif text-[7.5vw] md:text-[3.5vw] lg:text-[3.3vw] leading-none mb-4 md:mb-6 mix-blend-difference bg-blend-difference"><span className="anim-underline mix-blend-difference bg-blend-difference">{e.title}</span></span>
+                      <span className="inline font-serif text-[7.5vw] md:text-[2.5vw] lg:text-[2vw] leading-none mb-4 md:mb-6 mix-blend-difference bg-blend-difference"><span className="anim-underline mix-blend-difference bg-blend-difference">{e.title}</span></span>
                       <span className="block uppercase text-xs">{e.type}</span>
                     </a>
                   </div>
@@ -53,10 +53,10 @@ export default function Press({ props, items, email }) {
               <>
                 {items.map((e,i) => {
                   return (
-                    <div className="embla__slide border-r border-black dark:border-texture-white flex items-center text-center aspect-[10/8]" key={i}>
+                    <div className="embla__slide border-r border-black dark:border-texture-white flex items-center text-center aspect-[10/8] flex-[0_0_90%] md:flex-[0_0_33.4%] xl:flex-[0_0_20%]" key={i}>
                       <a href={e.link} target="_blank" rel="noopener noreferrer" className="w-full flex flex-wrap py-[10vw] md:py-[5vw] hover-underline text-center justify-center px-[2vw]">
                         <span className="block uppercase text-xs mb-4 md:mb-6">{e.publication}</span>
-                        <span className="inline font-serif text-[7.5vw] md:text-[3.5vw] lg:text-[3.3vw] leading-none mb-4 md:mb-6 mix-blend-difference bg-blend-difference"><span className="anim-underline mix-blend-difference bg-blend-difference">{e.title}</span></span>
+                        <span className="inline font-serif text-[7.5vw] md:text-[3.5vw] lg:text-[3vw] xl:text-[2.5vw] leading-none mb-4 md:mb-6 mix-blend-difference bg-blend-difference"><span className="anim-underline mix-blend-difference bg-blend-difference">{e.title}</span></span>
                         <span className="block uppercase text-xs">{e.type}</span>
                       </a>
                     </div>
