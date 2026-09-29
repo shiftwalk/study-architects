@@ -408,8 +408,8 @@ export default function Home(initialData) {
             </ul>
             
             <div className="text-center my-[20vw] md:my-[13vw]">
-              <a href={`mailto:hi@studio-arch.com`} className="display-heading--small font-sans group tracking-tight relative inline-block">
-                <span className="inline-block md:group-hover:translate-y-[-1.2vw] transition-translate ease-in-out duration-500">hi@studio-arch.com</span>
+              <a href={`mailto:hi@study-arch.com`} className="display-heading--small font-sans group tracking-tight relative inline-block">
+                <span className="inline-block md:group-hover:translate-y-[-1.2vw] transition-translate ease-in-out duration-500">hi@study-arch.com</span>
 
                 <div className="w-0 md:group-hover:w-full transition-all delay-75 ease-in-out duration-500 h-1 md:mb-[-1.2vw] bg-current absolute bottom-0 left-0 right-0"></div>
               </a>
